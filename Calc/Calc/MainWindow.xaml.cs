@@ -24,5 +24,15 @@ namespace Calc
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            test.Text = "7";
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            test.Text = "0";
+        }
     }
 }

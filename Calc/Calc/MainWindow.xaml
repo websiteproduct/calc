@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:Calc"
         mc:Ignorable="d"
         Title="Калькулятор под пивом" Height="450" Width="587" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF">
-    
-    
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -24,16 +22,15 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-
-        <TextBlock Text="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="36" FontWeight="Bold"></TextBlock>
-        <Button Style="{StaticResource TransparentStyle}" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA">
-            <Button Style="{StaticResource TransparentStyle}" Content="%" Margin="0,0,0,0" Background="#DADADADA" />
+        <TextBlock x:Name="test" Text="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="36" FontWeight="Bold"></TextBlock>
+        <Button HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA">
+            <Button Content="%" Margin="0,0,0,0" Background="#DADADADA" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA">
             <Button Content="CE" Margin="0,0,0,0" Background="#DADADADA" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA">
-            <Button Content="C" Margin="0,0,0,0" Background="#DADADADA" />
+            <Button Content="C" Margin="0,0,0,0" Background="#DADADADA" Click="Button_Click_1" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA">
             <Button Content="DEL" Margin="0,0,0,0" Background="#DADADADA" />
@@ -51,10 +48,10 @@
             <Button Content="/" Margin="0,0,0,0" Background="#DADADADA" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
-            <Button Content="7" Margin="0,0,0,0" Background="White" />
+            <Button Content="7" Margin="0,0,0,0" Background="White" Click="Button_Click" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
-            <Button Content="8" Margin="0,0,0,0" Background="White" Click="Button_Click" />
+            <Button Content="8" Margin="0,0,0,0" Background="White" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
             <Button Content="9" Margin="0,0,0,0" Background="White" />

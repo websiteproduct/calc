@@ -33,3 +33,4 @@ C:\Users\Pavel\Documents\GitHub\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc.Asse
 C:\Users\Pavel\Documents\GitHub\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc.dll
 C:\Users\Pavel\Documents\GitHub\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc.pdb
 C:\Users\Pavel\Documents\GitHub\calc\Calc\Calc\obj\Debug\netcoreapp3.1\App.baml
+D:\C#\calc\Calc\Calc\obj\Debug\netcoreapp3.1\App.baml

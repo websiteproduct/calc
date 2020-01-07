@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calc"
         mc:Ignorable="d"
-        Title="Калькулятор под пивом" Height="450" Width="587" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF">
+        Title="Калькулятор под пивом" Height="450" Width="587" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" KeyUp="Window_KeyUp">
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

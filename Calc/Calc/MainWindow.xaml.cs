@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calc
 {
@@ -30,9 +19,18 @@ namespace Calc
             if (test.Text == "0")
             {
                 test.Text = Button_7.Content.ToString();
-            } else
+            }
+            else
             {
                 test.Text += Button_7.Content.ToString();
+            }
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.D7 || e.Key == Key.NumPad7)
+            {
+                Button_7_Click(sender, e);
             }
         }
     }

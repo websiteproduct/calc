@@ -1,0 +1,17 @@
+D:\C#\calc\Calc\Calc\bin\Release\netcoreapp3.1\Calc.exe
+D:\C#\calc\Calc\Calc\bin\Release\netcoreapp3.1\Calc.deps.json
+D:\C#\calc\Calc\Calc\bin\Release\netcoreapp3.1\Calc.runtimeconfig.json
+D:\C#\calc\Calc\Calc\bin\Release\netcoreapp3.1\Calc.runtimeconfig.dev.json
+D:\C#\calc\Calc\Calc\bin\Release\netcoreapp3.1\Calc.dll
+D:\C#\calc\Calc\Calc\bin\Release\netcoreapp3.1\Calc.pdb
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc.csprojAssemblyReference.cache
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\MainWindow.g.cs
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\App.g.cs
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc_MarkupCompile.cache
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc_MarkupCompile.lref
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\MainWindow.baml
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc.g.resources
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc.AssemblyInfoInputs.cache
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc.AssemblyInfo.cs
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc.dll
+D:\C#\calc\Calc\Calc\obj\Release\netcoreapp3.1\Calc.pdb

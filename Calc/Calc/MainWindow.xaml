@@ -30,10 +30,10 @@
             <Button Content="CE" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
-            <Button Content="C" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_Clear" Content="C" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_Clear_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
-            <Button Content="DEL" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_Del" Content="DEL" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_Del_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
             <Button Content="1/x" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" />
@@ -51,43 +51,43 @@
             <Button x:Name="Button_7" Content="7" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_7_Click" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="8" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_8" Content="8" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_8_Click" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="9" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_9" Content="9" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_9_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFDADADA" BorderBrush="{x:Null}">
             <Button Content="X" Margin="0,0,0,0" Background="#FFDADADA" BorderBrush="{x:Null}" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="4" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_4" Content="4" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_4_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="5" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_5" Content="5" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_5_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="6" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_6" Content="6" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_6_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFDADADA" BorderBrush="{x:Null}">
             <Button Content="-" Margin="0,0,0,0" Background="#FFDADADA" BorderBrush="{x:Null}" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="1" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_1" Content="1" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_1_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="2" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_2" Content="2" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_2_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="3" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Padding="0,0,0,0" />
+            <Button x:Name="Button_3" Content="3" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Padding="0,0,0,0" Click="Button_3_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFDADADA" BorderBrush="{x:Null}">
             <Button Content="+" Margin="0,0,0,0" Background="#FFDADADA" BorderBrush="{x:Null}" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="+/-" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_signChange" Content="+/-" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_signChange_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button Content="0" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />
+            <Button x:Name="Button_0" Content="0" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_0_Click"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
             <Button Content="," Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" />

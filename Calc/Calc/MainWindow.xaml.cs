@@ -49,7 +49,7 @@ namespace Calc
                 if (execStrLength >= 2 && Array.Exists(operators, element => element == Exec_Str.Text[execStrLength - 2]))
                 {
                     Exec_Str.Text = test.Text;
-                    test.Text
+                   // test.Text
                 }
                 //if (Exec_Str.Text[Exec_Str.Text.Length - 1] == '+')
                 if (execStrLength >= 2 && Array.Exists(operators, element => element == Exec_Str.Text[execStrLength - 2]))
@@ -217,7 +217,7 @@ namespace Calc
 
         private void Button_signChange_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToInt32(test.Text) > 0)
+            if (Convert.ToDouble(test.Text) > 0)
             {
                 test.Text = "-" + test.Text;
             }
@@ -232,5 +232,72 @@ namespace Calc
         {
             test.Text = "0";
         }
+
+        private void Button_1x_Click(object sender, RoutedEventArgs e)
+        {
+            if (test.Text == "0")
+            {
+                test.Text = "Невозможно делить на 0";
+            }
+            else
+            {
+                test.Text = (1 / Convert.ToDouble(test.Text)).ToString();
+            }
+        }
+
+        private void Button_x2_Click(object sender, RoutedEventArgs e)
+        {
+            test.Text = Math.Pow(Convert.ToInt32(test.Text),2).ToString();
+        }
+
+        private void Button_percent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_sqrt_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToDouble(test.Text)>0)
+            {
+                test.Text = Math.Sqrt(Convert.ToDouble(test.Text)).ToString();
+            }
+            else
+            {
+                test.Text = "nope";
+            }
+        }
+
+        private void Button_division_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_multiplication_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_minus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_plus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_dot_Click(object sender, RoutedEventArgs e)
+        {
+            if (!test.Text.Contains(","))
+            {
+                test.Text += ",";
+            }
+        }
+        private void Button_CE_Click(object sender, RoutedEventArgs e)
+        {
+            test.Text = "0";
+        }
+
     }
 }

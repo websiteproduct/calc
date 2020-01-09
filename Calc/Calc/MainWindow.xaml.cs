@@ -14,6 +14,7 @@ namespace Calc
         private bool t = false;
         private double result = 0;
         private string op = "";
+        private bool afterCalcState = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace Calc
             {
                 test.Text = "0";
                 execStr.Text = "";
+                op = "";
+                t = false;
                 return;
             }
 
@@ -56,8 +59,16 @@ namespace Calc
 
             if (execStr.Text.Length > 0)
             {
+                // 5 + 1
                 if (!IsNumber(content))
                 {
+                    if (IsOperation(GetLastOperation()) && !t)
+                    {
+                        execStr.Text = execStr.Text.Remove(execStr.Text.Length - 1, 1) + content;
+                        op = content.ToString();
+                        t = false;
+                        return;
+                    }
                     execStr.Text += $" {test.Text} {content}";
                     t = false;
                     test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
@@ -66,11 +77,12 @@ namespace Calc
                 }
                 else if (content == '=')
                 {
+                    execStr.Text = "";
                     t = false;
-                    test.Text = Calc(result, Convert.ToDouble(test.Text), GetLastOperation().ToString()).ToString();
-                    execStr.Text += $" {test.Text} {content}";
+                    test.Text = Calc(result, Convert.ToDouble(test.Text), content.ToString()).ToString();
                     result = Convert.ToDouble(test.Text);
-                    op = content.ToString();
+                    afterCalcState = true;
+                    return;
                 }
                 else
                 {
@@ -100,11 +112,15 @@ namespace Calc
                         op = content.ToString();
                     }
                 }
-                else if (test.Text != "0")
+                else if (test.Text != "0" && !afterCalcState)
                 {
                     test.Text += content;
                 }
-                else test.Text = content.ToString();
+                else
+                {
+                    test.Text = content.ToString();
+                    afterCalcState = false;
+                }
             }
         }
 

@@ -43,7 +43,6 @@ C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\App.g.cs
 C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc_MarkupCompile.cache
 C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc_MarkupCompile.lref
-C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\App.baml
 C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc.g.resources
 C:\test\calc\Calc\Calc\obj\Debug\netcoreapp3.1\Calc.AssemblyInfoInputs.cache

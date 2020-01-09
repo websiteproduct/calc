@@ -24,7 +24,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock x:Name="execStr" Grid.ColumnSpan="4" HorizontalAlignment="right" FontSize="16" VerticalAlignment="Center" Margin="0,0,5,0"></TextBlock>
-        <TextBox x:Name="test" Grid.Row="1" Grid.ColumnSpan="4" FontSize="72" Text="0" FontWeight="Bold" MaxLength="16" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Transparent" BorderBrush="{x:Null}"></TextBox>
+        <TextBox x:Name="test" IsReadOnly="True" Grid.Row="1" Grid.ColumnSpan="4" FontSize="72" Text="0" FontWeight="Bold" MaxLength="16" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Transparent" BorderBrush="{x:Null}"></TextBox>
         <!--<TextBlock x:Name="test" Text="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="72" FontWeight="Bold" Margin="0,0,5,0"></TextBlock>-->
         <Button HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
             <Button x:Name="Button_percent" Content="%" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_percent_Click" FontSize="20" FontWeight="Normal" HorizontalAlignment="Center" Width="108" Height="44" VerticalAlignment="Top" />

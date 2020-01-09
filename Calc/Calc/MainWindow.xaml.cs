@@ -10,74 +10,137 @@ namespace Calc
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string[] operators = new string[] { "+", "-", "×", "÷" };
+        private bool t = false;
+        private double result = 0;
+        private string op = "";
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void addText(char content)
+        private double Calc(double a, double b, string operation)
         {
-            char[] operators = new char[] { '+', '-', '×', '÷' };
-            int execStrLength = 0;
-
-            //            ввод content или знак операции
-
-            //если test == "" && знак операции в массиве операций, то return
-            //иначе если test == "0", то test = content
-            //иначе если Exec_Str && знак операции в массиве операций, то Exec_Str.text = "${test} ${content}"
-            //иначе если Exec_Str, то
-            //иначе если знак операции в массиве операций, то
-
-            //    если Exec_Str, то {
-            //                если Exec_Str[Exec_Str.length - 1] в массиве операций, то Exec_Str.text = "${test} ${content}"
-
-            //    }
-            //            иначе Exec_Str.text = "${test} ${content}"
-            //иначе если Exec_Str[Exec_Str.length - 1] в массиве операций, то test.text = content
-            //иначе
-            //test.text += content
-
-            //0 +
-
-            if (test.Text == "0")
+            switch (operation)
             {
-                test.Text = content.ToString();
+                case "+":
+                    return a + b;
+                case "-":
+                    return a - b;
+                case "÷":
+                    return a / b;
+                case "×":
+                    return a * b;
+                default:
+                    return a;
             }
-            else if (Array.Exists(operators, element => element == content))
-            {
-                execStrLength = Exec_Str.Text.Length;
-                if (execStrLength >= 2 && Array.Exists(operators, element => element == Exec_Str.Text[execStrLength - 2]))
-                {
-                    Exec_Str.Text = test.Text;
-                   // test.Text
-                }
-                //if (Exec_Str.Text[Exec_Str.Text.Length - 1] == '+')
-                if (execStrLength >= 2 && Array.Exists(operators, element => element == Exec_Str.Text[execStrLength - 2]))
-                {
-                    StringBuilder sb = new StringBuilder(Exec_Str.Text);
-                    sb[execStrLength] = content;
+        }
 
-                    //Exec_Str.Text[Exec_Str.Text.Length - 2] = content;
+        private void AddText(char content)
+        {
+            StringBuilder sb = new StringBuilder(execStr.Text);
+            int execStrLastIndex = execStr.Text.Length - 1;
+
+            if (execStr.Text.Length > 0)
+            {
+                if (!IsNumber(content))
+                {
+                    execStr.Text += test.Text + " " + content;
+                    t = false;
+                    test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
+                    result = Convert.ToDouble(test.Text);
+                    op = content.ToString();
                 }
-                else Exec_Str.Text = Exec_Str.Text + " " + content + " ";
+                else
+                {
+                    if (t)
+                    {
+                        test.Text += content.ToString();
+                    }
+                    else
+                    {
+                        test.Text = content.ToString();
+                        t = true;
+                    }
+                }
             }
             else
             {
-                test.Text += content;
-                //Exec_Str.Text += content;
+                if (!IsNumber(content))
+                {
+                    if (test.Text == "0")
+                    {
+                        execStr.Text = $"0 {content}";
+                    }
+                    else
+                    {
+                        execStr.Text = $"{test.Text} {content}";
+                        result = Convert.ToDouble(test.Text);
+                        op = content.ToString();
+                    }
+
+                    //if (execStr.Text == "0")
+                    //{
+                    //    execStr.Text = $"0 {content}";
+                    //}
+                    //else
+                    //{
+                    //    execStr.Text = $"{test.Text} {content}";
+                    //}
+                }
+                else if (test.Text != "0")
+                {
+                    test.Text += content;
+                }
+                else test.Text = content.ToString();
             }
+
+            //// если не число
+            //if (IsNumber(content))
+            //{
+            //    if (execStr.Text.Length == 0)
+            //    {
+            //        execStr.Text = $"0 {content}";
+            //    }
+            //    else
+            //    {
+            //        if (Array.Exists(operators, element => element == execStr.Text[execStrLastIndex].ToString()))
+            //        {
+            //            sb[execStrLastIndex] = content;
+            //        }
+            //        else
+            //        {
+            //            execStr.Text += $" {content}";
+            //        }
+            //    }
+            //}
+            //// если число
+            //else if (execStr.Text.Length >= 1 && IsNumber(content, "execStr"))
+            //{
+            //    test.Text = "";
+            //    test.Text += content;
+            //}
+            //else if (test.Text != "0" && execStr.Text.Length > 0)
+            //{
+            //    test.Text += content;
+            //}
+            //else test.Text = content.ToString();
+        }
+
+        private bool IsNumber(char content)
+        {
+            return !Array.Exists(operators, element => element == content.ToString());
+        }
+
+        private bool IsOperation(char content)
+        {
+            return execStr.Text.Length > 0 && Array.Exists(operators, element => element == execStr.Text[execStr.Text.Length - 1].ToString());
         }
 
         private void Button_Click(object content)
         {
-            if (test.Text == "0")
-            {
-                test.Text = content.ToString();
-            }
-            else
-            {
-                test.Text += content.ToString();
-            }
+            char calcElem = content.ToString()[0];
+            AddText(calcElem);
         }
 
         private void Button_7_Click(object sender, RoutedEventArgs e)
@@ -156,7 +219,7 @@ namespace Calc
                 default:
                     return;
             }
-            addText(digit);
+            AddText(digit);
         }
 
         private void Button_0_Click(object sender, RoutedEventArgs e)
@@ -247,7 +310,7 @@ namespace Calc
 
         private void Button_x2_Click(object sender, RoutedEventArgs e)
         {
-            test.Text = Math.Pow(Convert.ToInt32(test.Text),2).ToString();
+            test.Text = Math.Pow(Convert.ToInt32(test.Text), 2).ToString();
         }
 
         private void Button_percent_Click(object sender, RoutedEventArgs e)
@@ -257,7 +320,7 @@ namespace Calc
 
         private void Button_sqrt_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToDouble(test.Text)>0)
+            if (Convert.ToDouble(test.Text) > 0)
             {
                 test.Text = Math.Sqrt(Convert.ToDouble(test.Text)).ToString();
             }
@@ -284,7 +347,7 @@ namespace Calc
 
         private void Button_plus_Click(object sender, RoutedEventArgs e)
         {
-
+            AddText('+');
         }
 
         private void Button_dot_Click(object sender, RoutedEventArgs e)

@@ -105,7 +105,7 @@
             <Button x:Name="Button_dot" Content="," Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_dot_Click" FontSize="20" FontWeight="Normal" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="7" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#00DDDDDD" BorderBrush="{x:Null}">
-            <Button x:Name="EqualBtn" Content="=" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Margin="0,0,0,0" BorderBrush="{x:Null}" Padding="0,0,0,0" FontSize="20" FontWeight="Normal" />
+            <Button x:Name="EqualBtn" Content="=" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Margin="0,0,0,0" BorderBrush="{x:Null}" Padding="0,0,0,0" FontSize="20" FontWeight="Normal" Click="EqualBtn_Click" />
         </Button>
         <!--<TextBlock Text="Row0 Column1" Grid.Row="0" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Row0 Column2" Grid.Row="0" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>-->

@@ -41,13 +41,34 @@ namespace Calc
             StringBuilder sb = new StringBuilder(execStr.Text);
             int execStrLastIndex = execStr.Text.Length - 1;
 
+            if (content == 'c')
+            {
+                test.Text = "0";
+                execStr.Text = "";
+                return;
+            }
+
+            if (content == 'b')
+            {
+                Button_Del_Click(content, new RoutedEventArgs());
+                return;
+            }
+
             if (execStr.Text.Length > 0)
             {
                 if (!IsNumber(content))
                 {
-                    execStr.Text += test.Text + " " + content;
+                    execStr.Text += $" {test.Text} {content}";
                     t = false;
                     test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
+                    result = Convert.ToDouble(test.Text);
+                    op = content.ToString();
+                }
+                else if (content == '=')
+                {
+                    t = false;
+                    test.Text = Calc(result, Convert.ToDouble(test.Text), GetLastOperation().ToString()).ToString();
+                    execStr.Text += $" {test.Text} {content}";
                     result = Convert.ToDouble(test.Text);
                     op = content.ToString();
                 }
@@ -78,15 +99,6 @@ namespace Calc
                         result = Convert.ToDouble(test.Text);
                         op = content.ToString();
                     }
-
-                    //if (execStr.Text == "0")
-                    //{
-                    //    execStr.Text = $"0 {content}";
-                    //}
-                    //else
-                    //{
-                    //    execStr.Text = $"{test.Text} {content}";
-                    //}
                 }
                 else if (test.Text != "0")
                 {
@@ -94,37 +106,6 @@ namespace Calc
                 }
                 else test.Text = content.ToString();
             }
-
-            //// если не число
-            //if (IsNumber(content))
-            //{
-            //    if (execStr.Text.Length == 0)
-            //    {
-            //        execStr.Text = $"0 {content}";
-            //    }
-            //    else
-            //    {
-            //        if (Array.Exists(operators, element => element == execStr.Text[execStrLastIndex].ToString()))
-            //        {
-            //            sb[execStrLastIndex] = content;
-            //        }
-            //        else
-            //        {
-            //            execStr.Text += $" {content}";
-            //        }
-            //    }
-            //}
-            //// если число
-            //else if (execStr.Text.Length >= 1 && IsNumber(content, "execStr"))
-            //{
-            //    test.Text = "";
-            //    test.Text += content;
-            //}
-            //else if (test.Text != "0" && execStr.Text.Length > 0)
-            //{
-            //    test.Text += content;
-            //}
-            //else test.Text = content.ToString();
         }
 
         private bool IsNumber(char content)
@@ -135,6 +116,11 @@ namespace Calc
         private bool IsOperation(char content)
         {
             return execStr.Text.Length > 0 && Array.Exists(operators, element => element == execStr.Text[execStr.Text.Length - 1].ToString());
+        }
+
+        private char GetLastOperation()
+        {
+            return execStr.Text[execStr.Text.Length - 1];
         }
 
         private void Button_Click(object content)
@@ -216,6 +202,15 @@ namespace Calc
                 case Key.Divide:
                     digit = '÷';
                     break;
+                case Key.Return:
+                    digit = '=';
+                    break;
+                case Key.Escape:
+                    digit = 'c';
+                    break;
+                case Key.Back:
+                    digit = 'b';
+                    break;
                 default:
                     return;
             }
@@ -294,6 +289,7 @@ namespace Calc
         private void Button_Clear_Click(object sender, RoutedEventArgs e)
         {
             test.Text = "0";
+            execStr.Text = "";
         }
 
         private void Button_1x_Click(object sender, RoutedEventArgs e)
@@ -360,7 +356,12 @@ namespace Calc
         private void Button_CE_Click(object sender, RoutedEventArgs e)
         {
             test.Text = "0";
+            t = false;
         }
 
+        private void EqualBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddText('=');
+        }
     }
 }

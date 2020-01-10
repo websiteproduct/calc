@@ -10,7 +10,7 @@ namespace Calc
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string[] operators = new string[] { "+", "-", "×", "÷" };
+        private string[] operators = new string[] { "+", "-", "×", "÷", "=" };
         private bool t = false;
         private double result = 0;
         private string op = "";
@@ -61,28 +61,34 @@ namespace Calc
 
             if (!IsNumber(content))
             {
-                if (execStr.Text == "")
+                if (execStr.Text == "" && content == '=')
+                {
+                    if (op.Length > 0)
+                    {
+                        test.Text = Calc(result, Convert.ToDouble(test.Text), content.ToString()).ToString();
+                        result = Convert.ToDouble(test.Text);
+                    } else return;
+                }
+                else if (execStr.Text == "" && content != '=')
                 {
                     execStr.Text = $"{test.Text} {content}";
                     result = Convert.ToDouble(test.Text);
                     op = content.ToString();
                     startCalcState = true;
                 }
-                //else if (IsOperation() && startCalcState)
-                //{
-                //    execStr.Text = execStr.Text.Remove(execStr.Text.Length - 1, 1) + content;
-                //}
+                else if (content == '=')
+                {
+                    if (!startCalcState) test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
+                    //op = "";
+                    execStr.Text = "";
+                    startCalcState = true;
+                }
                 else
                 {
-                    if (IsOperation())
-                    {
-                        execStr.Text = execStr.Text.Remove(execStr.Text.Length - 1, 1) + content;
-                        op = content.ToString();
-                        return;
-                    }
                     execStr.Text += $" {test.Text} {content}";
                     test.Text = Calc(result, Convert.ToDouble(test.Text), content.ToString()).ToString();
                     result = Convert.ToDouble(test.Text);
+                    op = content.ToString();
                     startCalcState = true;
                 }
                 //startCalcState = true;
@@ -207,6 +213,7 @@ namespace Calc
         {
 
             char digit = ' ';
+            
             switch (e.Key)
             {
                 case Key.D1:
@@ -261,6 +268,7 @@ namespace Calc
                     digit = '×';
                     break;
                 case Key.Divide:
+                case Key.OemQuestion:
                     digit = '÷';
                     break;
                 case Key.Return:

@@ -27,19 +27,10 @@
         <TextBox x:Name="test" IsReadOnly="True" Grid.Row="1" Grid.ColumnSpan="4" FontSize="72" Text="0" FontWeight="Bold" MaxLength="16" VerticalAlignment="Center" HorizontalAlignment="Right" Background="Transparent" BorderBrush="{x:Null}"></TextBox>
         <!--<TextBlock x:Name="test" Text="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="72" FontWeight="Bold" Margin="0,0,5,0"></TextBlock>-->
         <Button HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
-            <Button x:Name="Button_percent" Content="%" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_percent_Click" FontSize="20" FontWeight="Normal" HorizontalAlignment="Center" Width="108" Height="44" VerticalAlignment="Top" />
+            <Button x:Name="Button_percent" Content="%" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_percent_Click" FontSize="20" FontWeight="Normal" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
-            <Button x:Name="Button_CE" Content="CE" Margin="2,0,-2,0" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_CE_Click" FontSize="20" FontWeight="Normal" />
-            <Button.Style>
-                <Style>
-                    <Style.Triggers>
-                        <Trigger Property="Button.IsMouseOver" Value="True">
-                            <Setter Property="Button.Background" Value="Red" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
+            <Button x:Name="Button_CE" Content="CE" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_CE_Click" FontSize="20" FontWeight="Normal" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#DADADADA" BorderBrush="{x:Null}">
             <Button x:Name="Button_Clear" Content="C" Margin="0,0,0,0" Background="#DADADADA" BorderBrush="{x:Null}" Click="Button_Clear_Click" FontSize="20" FontWeight="Normal"/>
@@ -90,7 +81,7 @@
             <Button x:Name="Button_2" Content="2" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_2_Click" FontWeight="Bold" FontSize="22"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="2" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderBrush="{x:Null}">
-            <Button x:Name="Button_3" Content="3" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Padding="0,0,0,0" Click="Button_3_Click" FontWeight="Bold" FontSize="22"/>
+            <Button x:Name="Button_3" Content="3" Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_3_Click" FontWeight="Bold" FontSize="22"/>
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFDADADA" BorderBrush="{x:Null}">
             <Button x:Name="Button_plus" Content="+" Margin="0,0,0,0" Background="#FFDADADA" BorderBrush="{x:Null}" Click="Button_plus_Click" FontSize="20" FontWeight="Normal" />
@@ -105,7 +96,7 @@
             <Button x:Name="Button_dot" Content="," Margin="0,0,0,0" Background="White" BorderBrush="{x:Null}" Click="Button_dot_Click" FontSize="20" FontWeight="Normal" />
         </Button>
         <Button HorizontalAlignment="Stretch" Grid.Row="7" Grid.Column="3" FontSize="16" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="#00DDDDDD" BorderBrush="{x:Null}">
-            <Button x:Name="EqualBtn" Content="=" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Margin="0,0,0,0" BorderBrush="{x:Null}" Padding="0,0,0,0" FontSize="20" FontWeight="Normal" Click="EqualBtn_Click" />
+            <Button x:Name="EqualBtn" Content="=" Background="LightBlue" Margin="0,0,0,0" BorderBrush="{x:Null}" FontSize="20" FontWeight="Normal" Click="EqualBtn_Click" />
         </Button>
         <!--<TextBlock Text="Row0 Column1" Grid.Row="0" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
         <TextBlock Text="Row0 Column2" Grid.Row="0" Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>-->

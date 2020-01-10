@@ -15,6 +15,7 @@ namespace Calc
         private double result = 0;
         private string op = "";
         private bool afterCalcState = false;
+        private bool startCalcState = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -47,7 +48,8 @@ namespace Calc
                 test.Text = "0";
                 execStr.Text = "";
                 op = "";
-                t = false;
+                //t = false;
+                startCalcState = true;
                 return;
             }
 
@@ -57,71 +59,114 @@ namespace Calc
                 return;
             }
 
-            if (execStr.Text.Length > 0)
+            if (!IsNumber(content))
             {
-                // 5 + 1
-                if (!IsNumber(content))
+                if (execStr.Text == "")
                 {
-                    if (IsOperation(GetLastOperation()) && !t)
+                    execStr.Text = $"{test.Text} {content}";
+                    result = Convert.ToDouble(test.Text);
+                    op = content.ToString();
+                    startCalcState = true;
+                }
+                //else if (IsOperation() && startCalcState)
+                //{
+                //    execStr.Text = execStr.Text.Remove(execStr.Text.Length - 1, 1) + content;
+                //}
+                else
+                {
+                    if (IsOperation())
                     {
                         execStr.Text = execStr.Text.Remove(execStr.Text.Length - 1, 1) + content;
                         op = content.ToString();
-                        t = false;
                         return;
                     }
                     execStr.Text += $" {test.Text} {content}";
-                    t = false;
-                    test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
-                    result = Convert.ToDouble(test.Text);
-                    op = content.ToString();
-                }
-                else if (content == '=')
-                {
-                    execStr.Text = "";
-                    t = false;
                     test.Text = Calc(result, Convert.ToDouble(test.Text), content.ToString()).ToString();
                     result = Convert.ToDouble(test.Text);
-                    afterCalcState = true;
-                    return;
+                    startCalcState = true;
                 }
-                else
-                {
-                    if (t)
-                    {
-                        test.Text += content.ToString();
-                    }
-                    else
-                    {
-                        test.Text = content.ToString();
-                        t = true;
-                    }
-                }
+                //startCalcState = true;
             }
             else
             {
-                if (!IsNumber(content))
+                if (startCalcState)
                 {
-                    if (test.Text == "0")
-                    {
-                        execStr.Text = $"0 {content}";
-                    }
-                    else
-                    {
-                        execStr.Text = $"{test.Text} {content}";
-                        result = Convert.ToDouble(test.Text);
-                        op = content.ToString();
-                    }
-                }
-                else if (test.Text != "0" && !afterCalcState)
-                {
-                    test.Text += content;
+                    test.Text = content.ToString();
+                    startCalcState = false;
                 }
                 else
                 {
-                    test.Text = content.ToString();
-                    afterCalcState = false;
+                    test.Text += content;
                 }
             }
+
+            //if (execStr.Text.Length > 0)
+            //{
+            //    // 5 + 1
+            //    if (afterCalcState) execStr.Text = "";
+
+            //    if (!IsNumber(content))
+            //    {
+            //        if (IsOperation(GetLastOperation()) && !t)
+            //        {
+            //            execStr.Text = execStr.Text.Remove(execStr.Text.Length - 1, 1) + content;
+            //            op = content.ToString();
+            //            t = false;
+            //            return;
+            //        }
+            //        execStr.Text += $" {test.Text} {content}";
+            //        t = false;
+            //        test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
+            //        result = Convert.ToDouble(test.Text);
+            //        op = content.ToString();
+            //    }
+            //    else if (content == '=')
+            //    {
+            //        execStr.Text += $" {test.Text} {content}";
+            //        test.Text = Calc(result, Convert.ToDouble(test.Text), op).ToString();
+            //        result = Convert.ToDouble(test.Text);
+            //        t = false;
+            //        afterCalcState = true;
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        if (t)
+            //        {
+            //            test.Text += content.ToString();
+            //        }
+            //        else
+            //        {
+            //            test.Text = content.ToString();
+            //            t = true;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    if (!IsNumber(content))
+            //    {
+            //        if (test.Text == "0")
+            //        {
+            //            execStr.Text = $"0 {content}";
+            //        }
+            //        else
+            //        {
+            //            execStr.Text = $"{test.Text} {content}";
+            //            result = Convert.ToDouble(test.Text);
+            //            op = content.ToString();
+            //        }
+            //    }
+            //    else if (test.Text != "0" && !afterCalcState)
+            //    {
+            //        test.Text += content;
+            //    }
+            //    else
+            //    {
+            //        test.Text = content.ToString();
+            //        afterCalcState = false;
+            //    }
+            //}
         }
 
         private bool IsNumber(char content)
@@ -129,7 +174,7 @@ namespace Calc
             return !Array.Exists(operators, element => element == content.ToString());
         }
 
-        private bool IsOperation(char content)
+        private bool IsOperation()
         {
             return execStr.Text.Length > 0 && Array.Exists(operators, element => element == execStr.Text[execStr.Text.Length - 1].ToString());
         }
@@ -286,6 +331,7 @@ namespace Calc
             else
             {
                 test.Text = "0";
+                startCalcState = true;
             }
         }
 
